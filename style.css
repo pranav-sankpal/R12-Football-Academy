@@ -125,6 +125,7 @@ section {
 /* GALLERY */
 .gallery img {
     width: 30%;
+    height: 15%;
     margin: 10px;
     border-radius: 12px;
     transition: 0.4s;
