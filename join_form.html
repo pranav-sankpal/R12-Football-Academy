@@ -5,21 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 </head>
+    
+<script>
+document.getElementById("joinForm").addEventListener("submit", async function(e){
+    e.preventDefault()
+
+    const formData = new FormData(this)
+
+    const data = {
+        name: formData.get("name"),
+        age: formData.get("age"),
+        email: formData.get("email"),
+        phone: formData.get("phone")
+    }
+
+    try {
+        const res = await fetch("https://r12-backend.onrender.com/join", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+
+        const result = await res.text()
+
+        alert(result)
+    } catch (err) {
+        alert("Error connecting to server")
+    }
+})
+</script>
+
+    
 <body class="form-page">
 
     <div class="form-box">
         <h2>Join R12 Football Academy ⚽</h2>
 
-        <form>
-            <input type="text" placeholder="Full Name" required>
+        <form id="joinForm">
+            <input type="text" name="name" placeholder="Full Name" required>
 
-            <input type="number" placeholder="Age" required>
+            <input type="number" name="age" placeholder="Age" required>
 
-            <input type="text" placeholder="City" required>
+            <input type="email" name="email" placeholder="Email" required>
 
-            <input type="tel" placeholder="Mobile Number" required>
+            <input type="tel" name="phone" placeholder="Mobile Number" required>
 
-            <input type="email" placeholder="Email Address" required>
+            <input type="text" name="city" placeholder="Address" required>
 
             <div class="gender">
             <label>Gender:</label>
