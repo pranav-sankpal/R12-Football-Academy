@@ -5,45 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 </head>
-    
-<script>
-document.getElementById("joinForm").addEventListener("submit", function(e){
-    e.preventDefault()
 
-    const formData = new FormData(this)
-
-    const data = {
-        name: formData.get("name"),
-        age: formData.get("age"),
-        email: formData.get("email"),
-        phone: formData.get("phone")
-    }
-
-    try {
-        const res = await fetch("https://r12-backend.onrender.com/join", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-        })
-
-        const result = await res.json()
-
-        if(res.ok){
-            alert("✅ Data stored successfully!")
-            document.getElementById("joinForm").reset()
-        } else {
-            alert("❌ Error: " + result.message)
-        }
-
-    } catch (err) {
-        alert("⚠️ Server not responding")
-    }
-})
-</script>
-
-    
 <body class="form-page">
 
     <div class="form-box">
@@ -51,27 +13,23 @@ document.getElementById("joinForm").addEventListener("submit", function(e){
 
         <form id="joinForm">
             <input type="text" name="name" placeholder="Full Name" required>
-
             <input type="number" name="age" placeholder="Age" required>
-
             <input type="email" name="email" placeholder="Email" required>
-
             <input type="tel" name="phone" placeholder="Mobile Number" required>
-
             <input type="text" name="city" placeholder="Address" required>
 
             <div class="gender">
-            <label>Gender:</label>
+                <label>Gender:</label>
 
-            <input type="radio" name="gender" id="male">
-            <label for="male">Male</label>
+                <input type="radio" name="gender" value="male">
+                <label>Male</label>
 
-            <input type="radio" name="gender" id="female">
-            <label for="female">Female</label>
+                <input type="radio" name="gender" value="female">
+                <label>Female</label>
             </div>
 
             <label>Select Level:</label><br>
-            <select required>
+            <select name="level" required>
                 <option>Beginner</option>
                 <option>Intermediate</option>
                 <option>Advanced</option>
@@ -82,6 +40,44 @@ document.getElementById("joinForm").addEventListener("submit", function(e){
             <button type="submit">Join Now</button>
         </form>
     </div>
+
+    <!-- ✅ SCRIPT MUST BE HERE (BOTTOM) -->
+    <script>
+    document.getElementById("joinForm").addEventListener("submit", async function(e){
+        e.preventDefault()
+
+        const formData = new FormData(this)
+
+        const data = {
+            name: formData.get("name"),
+            age: formData.get("age"),
+            email: formData.get("email"),
+            phone: formData.get("phone")
+        }
+
+        try {
+            const res = await fetch("https://r12-backend.onrender.com/join", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            })
+
+            const result = await res.json()
+
+            if(res.ok){
+                alert("✅ Data stored successfully!")
+                document.getElementById("joinForm").reset()
+            } else {
+                alert("❌ Error: " + result.message)
+            }
+
+        } catch (err) {
+            alert("⚠️ Server not responding")
+        }
+    })
+    </script>
 
 </body>
 </html>
