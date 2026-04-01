@@ -194,3 +194,9 @@ footer {
     font-weight: bold;
     cursor: pointer;
 }
+.gender{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    margin:10px 0;
+}
