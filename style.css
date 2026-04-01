@@ -31,14 +31,12 @@ nav a {
     text-decoration: none;
     font-weight: 600;
     position: relative;
-    transition: 0.3s;
 }
 
 nav a:hover {
     color: #0077ff;
 }
 
-/* underline */
 nav a::after {
     content: "";
     width: 0%;
@@ -57,11 +55,10 @@ nav a:hover::after {
 /* HERO */
 .hero {
     height: 90vh;
-    background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.9)),
+    background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.95)),
                 url("gallery4.jpeg");
     background-size: cover;
     background-position: center;
-    color: black;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -81,7 +78,6 @@ nav a:hover::after {
     color: #555;
 }
 
-/* BUTTON */
 .hero button {
     padding: 12px 30px;
     border: none;
@@ -91,33 +87,13 @@ nav a:hover::after {
     border-radius: 50px;
     cursor: pointer;
     font-weight: 700;
-    transition: 0.4s;
-}
-
-.hero button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 15px #00c6ff;
 }
 
 /* SECTIONS */
 section {
     padding: 60px;
     text-align: center;
-    background: #f9f9f9;
-    color: black;
-}
-
-/* Alternate */
-.about, .contact {
-    background: #ffffff;
-}
-
-/* Training */
-.training li {
-    margin: 5px 0;
-    font-weight: 600;
-    color: #0077ff;
-    font-size: 18px;
+    background: #f5f7fb;
 }
 
 /* GALLERY */
@@ -125,79 +101,86 @@ section {
     width: 30%;
     margin: 10px;
     border-radius: 12px;
-    transition: 0.4s;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
 }
 
 .gallery img:hover {
-    transform: scale(1.08);
-    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    transform: scale(1.05);
 }
 
 /* FOOTER */
 footer {
-    background: #ffffff;
+    background: white;
     color: #777;
     text-align: center;
     padding: 20px;
-    font-size: 14px;
     border-top: 1px solid #ddd;
 }
 
+/* FORM PAGE (LIGHT THEME) */
 .form-page {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)),
-                url("gallery3.jpeg");
-    background-size: 100% 100%;
-    background-position:center;
-    background-repeat:no-repeat;
+    background: #f5f7fb;
 }
 
-/* Form Box */
+/* FORM BOX */
 .form-box {
-    background: rgba(0, 0, 0, 0.85);
+    background: white;
     padding: 30px;
-    width: 600px;
-    height: 900px;
+    width: 400px;
     border-radius: 15px;
-    justify-content: center;
-    align-items: center;
     text-align: center;
-    box-shadow: 0 0 20px rgba(255,204,0,0.5);
-    color: white;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
 
 .form-box h2 {
     margin-bottom: 20px;
-    color: #ffcc00;
+    color: #0077ff;
 }
 
-/* Inputs */
-.form-box input, 
+/* INPUTS (ONLY TEXT FIELDS) */
+.form-box input[type="text"],
+.form-box input[type="email"],
+.form-box input[type="number"],
+.form-box input[type="tel"],
 .form-box select {
     width: 90%;
     padding: 10px;
     margin: 10px 0;
-    border: none;
+    border: 1px solid #ddd;
     border-radius: 5px;
 }
 
-/* Button */
+/* GENDER SECTION */
+.gender {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 15px 0;
+}
+
+.gender label {
+    color: #333;
+}
+
+/* RADIO FIX */
+.form-box input[type="radio"] {
+    width: auto;
+    margin-right: 5px;
+}
+
+/* BUTTON */
 .form-box button {
     width: 100%;
     padding: 12px;
-    background: linear-gradient(135deg, #ffcc00, #00c6ff);
+    background: linear-gradient(135deg, #0077ff, #00c6ff);
     border: none;
     border-radius: 5px;
+    color: white;
     font-weight: bold;
     cursor: pointer;
-}
-.gender{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    margin:10px 0;
 }
