@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Students List</title>
+</head>
+<body>
+
+<h2>Joined Students</h2>
+<ul id="list"></ul>
+
+<script>
+fetch("https://r12-backend.onrender.com/students")
+.then(res => res.json())
+.then(data => {
+    const list = document.getElementById("list")
+
+    data.forEach(student => {
+        const li = document.createElement("li")
+        li.textContent = student.name + " - " + student.email
+        list.appendChild(li)
+    })
+})
+</script>
+
+</body>
+</html>
