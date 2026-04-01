@@ -151,7 +151,7 @@ footer {
     align-items: center;
     background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)),
                 url("gallery3.jpeg");
-    background-size: 95%;
+    background-size: 100%;
     background-position:center;
     background-repeat:no-repeat;
 }
