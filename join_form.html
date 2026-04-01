@@ -28,11 +28,17 @@ document.getElementById("joinForm").addEventListener("submit", async function(e)
             body: JSON.stringify(data)
         })
 
-        const result = await res.text()
+        const result = await res.json()
 
-        alert(result)
+        if(res.ok){
+            alert("✅ Data stored successfully!")
+            document.getElementById("joinForm").reset()
+        } else {
+            alert("❌ Error: " + result.message)
+        }
+
     } catch (err) {
-        alert("Error connecting to server")
+        alert("⚠️ Server not responding")
     }
 })
 </script>
