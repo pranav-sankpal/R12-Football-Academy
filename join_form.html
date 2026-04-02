@@ -13,8 +13,10 @@
 
         <form id="joinForm">
             <input type="text" name="name" placeholder="Full Name" required>
+            <input type="date" id="birthday" name="birthday" min="1990-01-01" max="2020-01-01" required>
+            <input type="text" name="name" placeholder="School Name" required>
             <input type="number" name="age" placeholder="Age" required>
-            <input type="email" name="email" placeholder="Email" required>
+            <input type="email" name="email" placeholder="Email" >
             <input type="tel" name="phone" placeholder="Mobile Number" required>
             <input type="text" name="city" placeholder="Address" required>
 
@@ -50,6 +52,7 @@
 
         const data = {
             name: formData.get("name"),
+            bdate: formData.get("birthday") 
             age: formData.get("age"),
             email: formData.get("email"),
             phone: formData.get("phone")
