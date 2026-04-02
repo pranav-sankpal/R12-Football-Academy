@@ -12,11 +12,18 @@
         <h2>Join R12 Football Academy ⚽</h2>
 
         <form id="joinForm">
-            <input type="text" name="name" placeholder="Full Name" required>
-            <input type="date" id="birthday" name="birthday" min="1990-01-01" max="2020-01-01" required>
-            <input type="text" name="name" placeholder="School Name" required>
-            <input type="number" name="age" placeholder="Age" required>
-            <input type="email" name="email" placeholder="Email" >
+            <input type="text" name="name" placeholder="Full Name" required> 
+
+            <!-- ✅ added onchange -->
+            <input type="date" id="birthday" name="birthday" min="1990-01-01" max="2020-01-01" onchange="calAge()" required>
+
+            <!-- ✅ fixed name -->
+            <input type="text" name="school" placeholder="School Name" required>
+
+            <!-- ✅ added id + readonly -->
+            <input type="number" id="age" name="age" placeholder="Age" readonly required>
+
+            <input type="email" name="email" placeholder="Email">
             <input type="tel" name="phone" placeholder="Mobile Number" required>
             <input type="text" name="city" placeholder="Address" required>
 
@@ -43,8 +50,26 @@
         </form>
     </div>
 
-    <!-- ✅ SCRIPT MUST BE HERE (BOTTOM) -->
+    <!-- ✅ SCRIPT -->
     <script>
+
+    function calAge(){
+        let d = document.getElementById("birthday").value;
+        if(d === "") return;
+
+        let dob = new Date(d);
+        let today = new Date();
+
+        let age = today.getFullYear() - dob.getFullYear();
+        let m = today.getMonth() - dob.getMonth();
+
+        if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
+            age--;
+        }
+
+        document.getElementById("age").value = age;
+    }
+
     document.getElementById("joinForm").addEventListener("submit", async function(e){
         e.preventDefault()
 
@@ -52,7 +77,7 @@
 
         const data = {
             name: formData.get("name"),
-            bdate: formData.get("birthday") 
+            bdate: formData.get("birthday"),  // ✅ fixed comma
             age: formData.get("age"),
             email: formData.get("email"),
             phone: formData.get("phone")
